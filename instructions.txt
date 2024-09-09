@@ -1,0 +1,15 @@
+What I had to do for controller to connect properly
+
+sudo apt-get install libhidapi-dev
+pip install hidapi
+pip install dualsense_controller
+
+
+sudo nano /etc/udev/rules.d/70-dualsense.rules
+
+add the following line to that file: 
+SUBSYSTEM=="usb", ATTR{idVendor}=="054c", ATTR{idProduct}=="0ce6, MODE="0666"
+
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+

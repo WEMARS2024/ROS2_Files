@@ -1,0 +1,39 @@
+To create your own interface package which allows you to create custom msg's and srv's follow these steps:
+
+ros2 pkg create [pkg_name]
+
+cd [pkg_name]
+rm -rf src
+rm -rf include
+mkdir msg
+mkdir srv
+
+open the package in vsc or compiler of choice
+
+
+
+
+add these three lines to the package.xml file:
+
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+
+
+
+add these lines to your CMakeLists.txt file:
+
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/[msg_file_name].msg"
+  "srv/[srv_file_name].srv"
+)
+
+ament_export_dependencies(rosidl_default_runtime)
+
+
+then you are ready to compile and use your custom interfaces!
+
+
+

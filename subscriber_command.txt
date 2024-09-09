@@ -1,0 +1,11 @@
+sudo apt install ros-humble-rviz2
+sudo apt install ros-humble-rviz-visual-tools
+rviz2
+
+when inside rviz:
+
+at bottom left of displays hit Add
+Select LaserScan, set its topic to "/scan"
+set size to 0.05, or whatever preferred
+
+in global options, set fixed frame to "laser"
