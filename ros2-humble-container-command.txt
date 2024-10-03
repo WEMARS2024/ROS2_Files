@@ -1,0 +1,12 @@
+sudo docker run -it --rm --runtime=nvidia --network host --privileged dusty-nv/ros:humble-ros-core-l4t-r35.4.1
+
+
+after you are done your session in the container, commit the container to save all progress.
+
+sudo docker commit <container-id> ros2-humble-container:v#
+
+to find out the container-id, run the command sudo docker ps
+
+to delete old images:
+sudo docker rmi <image_id>
+
